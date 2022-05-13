@@ -55,14 +55,14 @@ router.put("/:id", async (req, res) => {
   res.json({ message: "Tag Updated!" });
 });
 
-router.delete("/:id", (req, res) => {
+router.delete("/:id", async (req, res) => {
   const deleteTag = await Tag.destroy({
     where: {
       id: req.params.id,
     },
   }).catch((err) => console.log(err));
 
-  if (!deleteTage) {
+  if (!deleteTag) {
     res.status(404).json({ message: "There is no tag with this ID!" });
     return;
   }

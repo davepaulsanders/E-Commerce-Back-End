@@ -50,6 +50,10 @@ router.put("/:id", async (req, res) => {
       },
     }
   ).catch((err) => console.log(err));
+  if (!updatedCategory) {
+    res.status(404).json({ message: "There is no category with this ID!" });
+    return;
+  }
 
   res.json({ message: "Category Updated!" });
 });
@@ -60,7 +64,12 @@ router.delete("/:id", async (req, res) => {
       id: req.params.id,
     },
   }).catch((err) => console.log(err));
-  res.json({ message: "Product deleted!" });
+
+  if (!deleteCategory) {
+    res.status(404).json({ message: "There is no category with this ID!" });
+    return;
+  }
+  res.json({ message: "Category deleted!" });
 });
 
 module.exports = router;

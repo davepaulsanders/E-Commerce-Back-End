@@ -30,12 +30,13 @@ router.get("/:id", async (req, res) => {
 });
 
 router.post("/", async (req, res) => {
-  const newCategory = await Category.create({
-    category_name: req.body.name,
+  const newTag = await Tag.create({
+    tag_name: req.body.name,
   }).catch((err) => console.log(err));
 
-  res.json(newCategory);
+  res.json(newTag);
 });
+
 router.put("/:id", async (req, res) => {
   const updatedTag = await Tag.update(
     {
@@ -47,7 +48,7 @@ router.put("/:id", async (req, res) => {
       },
     }
   ).catch((err) => console.log(err));
-
+console.log(updatedTag)
   if (!updatedTag) {
     res.status(404).json({ message: "There is no tag with this ID" });
     return;

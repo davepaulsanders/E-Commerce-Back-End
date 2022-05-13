@@ -10,7 +10,8 @@ router.get("/", async (req, res) => {
   });
 
   if (!products) {
-    res.json({ message: "Nothing here!" });
+    res.status(404).json({ message: "Nothing here!" });
+    return;
   }
   res.json(products);
 });
@@ -26,8 +27,9 @@ router.get("/:id", async (req, res) => {
 
   if (!product) {
     res.json({ message: "No product with that ID!" });
+    return;
   }
-  res.json(product);
+  res.status(404).json(product);
 });
 
 // create new product
@@ -104,7 +106,7 @@ router.delete("/:id", async (req, res) => {
   });
 
   if (!removedProduct) {
-    res.json({ message: "No product with that ID!" });
+    res.status(404).json({ message: "No product with that ID!" });
   }
   res.json({ message: "Removed product!" });
 });

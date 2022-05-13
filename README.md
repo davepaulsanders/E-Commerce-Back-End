@@ -24,4 +24,4 @@ This app uses Node.js, MYSQL, Sequelize, and Express.
 
 ## Video Walkthrough
 
-[Link to video]()
+[Link to video](https://drive.google.com/file/d/1WeBht3BpPkU8HJ289gOdG-08h-JRA_8H/view?usp=sharing)
